@@ -17,7 +17,9 @@ This is an experimentation to see how Elastic APM could be used for tracing.
 	-Delastic.apm.application_packages=lk.elastic.apm
 	-jar elastic-apm-service-api-0.0.1.jar
 </code>
-
+4) Go to Kibana (http://localhost:5601) -> Observability -> APM. You'll see the service listed under services.
+5) Make some requests to http://localhost:9090 and see how the stats change.
+	
 References :
 1) https://www.elastic.co/guide/en/apm/get-started/current/index.html
 2) https://www.elastic.co/guide/en/apm/get-started/current/install-and-run.html
