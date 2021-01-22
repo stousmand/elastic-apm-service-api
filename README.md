@@ -21,7 +21,13 @@ This is an experimentation to see how Elastic APM could be used for tracing.
 4) Go to Kibana (http://localhost:5601) -> Observability -> APM. You'll see the service listed under services.
 
 5) Make some requests to http://localhost:9090 and see how the stats change.
-	
+
+6) There are four basic data models that are captured by agents -> Span, Transaction, Error and Metrics
+(Agent APIs are there to customize capturing events to some level, check documentation for each agent for a specific language)
+
+7) Meta Data and Custom Contexts could be used to enrich spans and transactions.
+
 References :
 1) https://www.elastic.co/guide/en/apm/get-started/current/index.html
 2) https://www.elastic.co/guide/en/apm/get-started/current/install-and-run.html
+3) https://www.elastic.co/guide/en/apm/get-started/current/apm-features.html
