@@ -1,28 +1,28 @@
 package lk.elastic.apm;
 
 public class CustomerDTO {
-	private int id;
-	private String customerName;
-	private int customerAge;
-	
-	public int getId() {
-		return id;
+    private Integer Id;
+    private String Code;
+    private String Email;
+    
+	public Integer getId() {
+		return Id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(Integer id) {
+		Id = id;
 	}
-	public String getCustomerName() {
-		return customerName;
+	public String getCode() {
+		return Code;
 	}
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+	public void setCode(String code) {
+		Code = code;
 	}
-	public int getCustomerAge() {
-		return customerAge;
+	public String getEmail() {
+		return Email;
 	}
-	public void setCustomerAge(int customerAge) {
-		this.customerAge = customerAge;
+	public void setEmail(String email) {
+		Email = email;
 	}
-	
-	
+    
+    
 }
