@@ -4,6 +4,7 @@
  */
 package lk.elastic.apm;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -15,27 +16,33 @@ import co.elastic.apm.api.Transaction;
 
 @Service
 public class CustomerService {
-
-	public CustomerDTO getCustomer() {
+	
+	@Autowired
+	private CustomerRepository cusRepository;
+	
+	public Customers getCustomer(int custId) {
 		//This does not start a tansaction. The agent starts a tansaction if the traceparent HTTP header is not found.
 		Transaction txn = ElasticApm.currentTransaction();
 		Span span = txn.startSpan();
 
+		Customers c = cusRepository.getCustomerById(custId);
+		/*
 		CustomerDTO o = new CustomerDTO();
 		o.setId(1);
 		o.setCustomerName("Foo Bar");
 		o.setCustomerAge(33);
-		
+		*/
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
-			span.setLabel("Customer Data",objectMapper.writeValueAsString(o));
+			span.setName("CustomerService-getCustomer");
+			span.setLabel("Customer Data",objectMapper.writeValueAsString(c));
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
 		
 		span.end();
 		txn.end();
-		return o;
+		return c;
 	}
 	
 }
